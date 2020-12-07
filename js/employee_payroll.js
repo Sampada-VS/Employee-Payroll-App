@@ -36,7 +36,7 @@ class EmployeePayrollData{
         let fullDate=new Date(year+','+month+','+date);
         let currentDate=new Date();
         if(fullDate < currentDate){
-          this._startDate=startDate;
+          this._startDate=new Date(startDate).toDateString();
         }
         else throw 'Start Date is incorrect.';
     } 

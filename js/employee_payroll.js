@@ -5,7 +5,11 @@ class EmployeePayrollData{
     }
     get name(){ return this._name; }
     set name(name){
-        this._name=name;
+        let nameRegex=RegExp('^[A-Z][a-z]{2,}$');
+        if(nameRegex.test(name))
+            this._name=name;
+        else
+            throw 'Name is incorrect.';
     }
     get profileImg(){ return this._profileImg; }
     set profileImg(profileImg){
@@ -23,18 +27,20 @@ class EmployeePayrollData{
     set salary(salary){
         this._salary=salary;
     }
-    get day(){ return this._day; }
-    set day(day){
-        this._day=day;
-    }
-    get month(){ return this._month; }
-    set month(month){
-        this._month=month;
-    }
-    get year(){ return this._year; }
-    set year(year){
-        this._year=year;
-    }
+    get startDate(){ return this._startDate; }
+    set startDate(startDate){
+        let inputDate=startDate.split("-");
+        let date=inputDate[2];
+        let month=inputDate[1];
+        let year=inputDate[0];
+        let fullDate=new Date(year+','+month+','+date);
+        let currentDate=new Date();
+        if(fullDate < currentDate){
+          this._startDate=startDate;
+        }
+        else throw 'Start Date is incorrect.';
+    } 
+
     get notes(){ return this._notes; }
     set notes(notes){
         this._notes=notes;
@@ -42,6 +48,6 @@ class EmployeePayrollData{
     toString(){
         return "Id: "+this.id+", Name: "+this.name+", Gender: "+this.gender+", ProfileImage: "+
         this.profileImg+", Department: "+this.department+", Salary: "+this.salary+", Start date: "+
-        this.day+"/"+this.month+"/"+this.year+", Note: "+this.notes;
+        this.startDate+", Note: "+this.notes;
     }
 }

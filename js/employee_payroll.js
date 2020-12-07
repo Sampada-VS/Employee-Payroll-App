@@ -40,7 +40,6 @@ class EmployeePayrollData{
         }
         else throw 'Start Date is incorrect.';
     } 
-
     get notes(){ return this._notes; }
     set notes(notes){
         this._notes=notes;

@@ -7,6 +7,7 @@
             rel="stylesheet">
     <link rel="stylesheet" href="../css/payroll_form.css">
     <script src="../js/employee_payroll.js"></script>
+    <script src="../js/payroll_form.js"></script>
     <title>Employee Payroll Form -Add Employee</title>
   </head>
   <body>
@@ -28,6 +29,7 @@
           <label class="label text" for="name">Name</label>
           <input class="input" type="text" id="name" name="name"
                   placeholder="Your name.." required>
+          <error-output class="text-error" for="text"></error-output>
         </div>
         <div class="row-content">
           <label class="label text" for ="profile">Profile image</label>
@@ -83,6 +85,7 @@
         <div class="row-content">
           <label class="label text" for="startDate">Start Date</label>
           <input type="date" class="date" id="startDate" name="startDate" required>
+          <error-output class="date-error" for="date"></error-output>
         </div>
         <div class="row-content">
           <label class="label text" for="notes">Notes</label>
@@ -98,6 +101,5 @@
         </div>
       </form>
     </div>
-    <script src="../js/payroll_form.js"></script>
   </body>
 </html>

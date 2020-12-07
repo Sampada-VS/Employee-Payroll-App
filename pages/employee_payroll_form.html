@@ -52,16 +52,16 @@
         <div class="row-content">
           <label class="label text" for="gender">Gender</label>
           <div>
-            <input type="radio" id="male" name="gender" value="male">
+            <input type="radio" id="male" name="gender" value="male" required>
             <label class="text" for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
+            <input type="radio" id="female" name="gender" value="female" required>
             <label class="text" for="female">Female</label>
           </div>
         </div>
         <div class="row-content">
           <label class="label text" for="department">Department</label>
           <div>
-            <input type="checkbox" id="hr" name="hr" value="HR">
+            <input type="checkbox" id="hr" name="hr" value="HR" >
             <label class="text" for="hr">HR</label>
             <input type="checkbox" id="sales" name="sales" value="Sales">
             <label class="text" for="sales">Sales</label>
@@ -82,7 +82,7 @@
         <div class="row-content">
           <label class="label text" for="startDate">Start Date</label>
           <div>
-            <select id="day" name="Day">
+            <select id="day" name="Day" required>
               <option value="">Day</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -116,7 +116,7 @@
               <option value="30">30</option>
               <option value="31">31</option>
             </select>
-            <select id="month" name="Month">
+            <select id="month" name="Month" required>
               <option value="">Month</option>
               <option value="Jan">January</option>
               <option value="Feb">February</option>
@@ -131,7 +131,7 @@
               <option value="Nov">November</option>
               <option value="Dec">December</option>
             </select>
-            <select id="year" name="Year">
+            <select id="year" name="Year" required>
               <option value="">Year</option>
               <option value="2020">2020</option>
               <option value="2019">2019</option>
@@ -139,6 +139,18 @@
               <option value="2017">2017</option>
               <option value="2016">2016</option>
             </select>
+          </div>
+        </div>
+        <div class="row-content">
+          <label class="label text" for="notes">Notes</label>
+          <textarea id="notes" class="input" name="notes" placeholder="Additional details.."
+                    style="height: 100px;"></textarea>
+        </div>
+        <div class="button-content">
+          <a href="home.html" class="resetButton button cancelButton">Cancel</a>
+          <div class="submit-reset">
+            <button type="submit" class="button submitButton" id="submitButton">Submit</button>
+            <button type="reset" class="resetButton button">Reset</button>
           </div>
         </div>
       </form>

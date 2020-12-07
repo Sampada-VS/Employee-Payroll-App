@@ -61,7 +61,7 @@ const createEmployeePayroll = () => {
   try{
     employeePayrollData.name=getInputValueById('#name');
   }catch(e){
-    setTextValue('.text-error',e);
+    setValue('.text-error',e);
     throw e;
   }
   employeePayrollData.profileImg=getSelectedValues('[name=profile]').pop();
@@ -85,4 +85,25 @@ const getSelectedValues=(propertyValue) => {
 const getInputValueById=(id) => {
   let value=document.querySelector(id).value;
   return value;
+}
+const resetForm = () => {
+  setValue('#name','');
+  unsetSelectedValues('[name=profile]');
+  unsetSelectedValues('[name=gender]');
+  unsetSelectedValues('[name=department]');
+  setValue('#salary','');
+  setValue('#notes','');
+  setValue('#startDate','');
+  setValue('.text-error','');
+  setValue('.date-error','');
+}
+const unsetSelectedValues= (propertyValue) => {
+  let allItems=document.querySelectorAll(propertyValue);
+  allItems.forEach(item => {
+    item.checked=false;
+  });
+}
+const setValue=(id,value) => {
+  const element=document.querySelector(id);
+  element.textContent=value;
 }

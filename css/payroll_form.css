@@ -288,10 +288,11 @@ tr img:not(:first-child){
   border-radius: 13px;
   opacity: 1;
   width: fit-content;
-  padding: 1px 7px;
+  padding: 1px 10px;
   text-align: center;
   display: inline-block;
   font-weight: 300;
+  margin-top: 5px;
   margin-bottom: 8px;
   font: normal normal normal 14px/19px Roboto;
   letter-spacing: 0px;

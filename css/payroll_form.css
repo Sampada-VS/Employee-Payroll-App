@@ -224,7 +224,7 @@ error-output{
   background: #82a70c 0% 0% no-repeat padding-box;
   border: none;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 5px 30px;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -267,7 +267,6 @@ td{
   letter-spacing: 0;
   color: #3d3d3d;
   opacity: 1;
-
 }
 td:first-child{
   display: flex;
@@ -281,7 +280,7 @@ td img{
   cursor: pointer;
 }
 tr img:not(:first-child){
-  padding-left: 20%;
+  padding-left: 15%;
 }
 .dept-label{
   background: #E9FEA5 0% 0% no-repeat padding-box; 

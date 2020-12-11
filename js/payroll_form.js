@@ -14,6 +14,13 @@ window.addEventListener('DOMContentLoaded',(event)=>{
     }
   });
 
+  const salary=document.querySelector('#salary');
+  const salaryOutput=document.querySelector('.salary-output');
+  salaryOutput.textContent=salary.value;
+  salary.addEventListener('input',function(){
+    salaryOutput.textContent=salary.value;
+  });
+
   const start_date=document.querySelector('#startDate');
   const dateError=document.querySelector('.date-error');
   start_date.addEventListener('input',function(){
@@ -28,13 +35,7 @@ window.addEventListener('DOMContentLoaded',(event)=>{
       dateError.textContent=e;
     }
   });
-
-  const salary=document.querySelector('#salary');
-  const salaryOutput=document.querySelector('.salary-output');
-  salaryOutput.textContent=salary.value;
-  salary.addEventListener('input',function(){
-    salaryOutput.textContent=salary.value;
-  });
+   
 });
 
 const save = () => {

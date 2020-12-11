@@ -1,3 +1,6 @@
+let isUpdate=false;
+let employeePayrollObj={};
+
 window.addEventListener('DOMContentLoaded',(event)=>{
   const name=document.querySelector('#name');
   const textError=document.querySelector('.text-error');
@@ -35,7 +38,7 @@ window.addEventListener('DOMContentLoaded',(event)=>{
       dateError.textContent=e;
     }
   });
-   
+  checkForUpdate();
 });
 
 const save = () => {
@@ -62,7 +65,7 @@ const createEmployeePayroll = () => {
   try{
     employeePayrollData.name=getInputValueById('#name');
   }catch(e){
-    setValue('.text-error',e);
+    setTextValue('.text-error',e);
     throw e;
   }
   employeePayrollData.profileImg=getSelectedValues('[name=profile]').pop();
@@ -87,16 +90,27 @@ const getInputValueById=(id) => {
   let value=document.querySelector(id).value;
   return value;
 }
+const setForm=() => {
+  setValue('#name',employeePayrollObj._name);
+  setSelectedValues('[name=profile]',employeePayrollObj._profileImg);
+  setSelectedValues('[name=gender]',employeePayrollObj._gender);
+  setSelectedValues('[name=department]',employeePayrollObj._department);
+  setValue('#salary',employeePayrollObj._salary);
+  setTextValue('.salary-output',employeePayrollObj._salary);
+  setValue('#notes',employeePayrollObj._notes);
+  setSelectedValue('#startDate',employeePayrollObj._startDate);
+}
 const resetForm = () => {
   setValue('#name','');
   unsetSelectedValues('[name=profile]');
   unsetSelectedValues('[name=gender]');
   unsetSelectedValues('[name=department]');
   setValue('#salary','');
+  setTextValue('.salary-output',400000);
   setValue('#notes','');
   setValue('#startDate','');
-  setValue('.text-error','');
-  setValue('.date-error','');
+  setTextValue('.text-error','');
+  setTextValue('.date-error','');
 }
 const unsetSelectedValues= (propertyValue) => {
   let allItems=document.querySelectorAll(propertyValue);
@@ -104,7 +118,35 @@ const unsetSelectedValues= (propertyValue) => {
     item.checked=false;
   });
 }
+const setSelectedValues=(propertyValue,value) => {
+  let allItems=document.querySelectorAll(propertyValue);
+  allItems.forEach(item => {
+    if(Array.isArray(value)){
+      if(value.includes(item.value)){
+        item.checked=true;
+      }
+    }
+    else if(item.value === value)
+      item.checked=true;
+  });
+}
 const setValue=(id,value) => {
+  const element=document.querySelector(id);
+  element.value=value;
+}
+const setTextValue=(id,value) => {
   const element=document.querySelector(id);
   element.textContent=value;
 }
+const setSelectedIndex=(id,index) => {
+  const element=document.querySelector(id);
+  element.setSelectedIndex=index;
+}
+const checkForUpdate = () => {
+  const employeePayrollJson=localStorage.getItem('editEmp');
+  isUpdate=employeePayrollJson ? true : false;
+  if(!isUpdate) return;
+  employeePayrollObj=JSON.parse(employeePayrollJson);
+  setForm();
+}
+

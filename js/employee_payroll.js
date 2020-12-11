@@ -45,8 +45,8 @@ class EmployeePayrollData{
         this._notes=notes;
     }
     toString(){
-        return "Id: "+this.id+", Name: "+this.name+", Gender: "+this.gender+", ProfileImage: "+
-        this.profileImg+", Department: "+this.department+", Salary: "+this.salary+", Start date: "+
+        return "Id: "+this.id+", Name: "+this.name+", ProfileImage: "+this.profileImg+
+        ", Gender: "+this.gender+", Department: "+this.department+", Salary: "+this.salary+", Start date: "+
         this.startDate+", Note: "+this.notes;
     }
 }

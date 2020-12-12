@@ -29,24 +29,24 @@ class EmployeePayrollData{
     }
     get startDate(){ return this._startDate; }
     set startDate(startDate){
-        let inputDate=startDate.split("-");
-        let date=inputDate[2];
-        let month=inputDate[1];
-        let year=inputDate[0];
-        let fullDate=new Date(year+','+month+','+date);
-        let currentDate=new Date();
-        if(fullDate < currentDate){
-          this._startDate=new Date(startDate).toDateString();
-        }
-        else throw 'Start Date is incorrect.';
+        let now=new Date();
+        if(startDate > now ) throw 'Start date is a future date';
+        var diff=Math.abs(now.getTime()-new Date(startDate).getTime());
+        if(diff / (1000*60*60*24) > 30)
+            throw 'Start Date is beyond 30 days!';
+        this._startDate=startDate;
     } 
     get notes(){ return this._notes; }
     set notes(notes){
         this._notes=notes;
     }
     toString(){
+        const options={year:'numeric',month:'short',day:'numeric'};
+
+        const empDate=!this.startDate? "undefined" :
+                        new Date(this.startDate).toLocaleDateString("en-GB",options);
         return "Id: "+this.id+", Name: "+this.name+", ProfileImage: "+this.profileImg+
         ", Gender: "+this.gender+", Department: "+this.department+", Salary: "+this.salary+", Start date: "+
-        this.startDate+", Note: "+this.notes;
+        empDate+", Note: "+this.notes;
     }
 }

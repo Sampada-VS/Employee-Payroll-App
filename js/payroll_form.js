@@ -59,6 +59,10 @@ const save = (event) => {
 const createOrUpdateEmployeePayroll=()=>{
   let postURL=site_properties.server_url;
   let methodCall="POST";
+  if(isUpdate){
+    methodCall="PUT";
+    postURL=postURL+employeePayrollObj.id.toString();
+  }
   makeServiceCall(methodCall,postURL,true,employeePayrollObj)
   .then(responseText =>{
     resetForm();

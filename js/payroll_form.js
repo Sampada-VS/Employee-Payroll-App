@@ -103,37 +103,6 @@ const createAndUpdateStorage=()=>{
   localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
 }
 
-// const createEmployeePayrollData=(id)=>{
-//   let employeePayrollData=new EmployeePayrollData();
-//   if(!id)
-//     employeePayrollData.id=createNewEmployeeId();
-//   else
-//     employeePayrollData.id=id;
-//   setEmployeePayrollData(employeePayrollData);
-//   return employeePayrollData;
-// }
-
-// const setEmployeePayrollData=(employeePayrollData) =>{
-//   try{
-//     employeePayrollData.name=getInputValueById('#name');
-//   }catch(e){
-//     setTextValue('.text-error',e);
-//     throw e;
-//   }
-//   employeePayrollData.profileImg=employeePayrollObj._profileImg;
-//   employeePayrollData.gender=employeePayrollObj._gender;
-//   employeePayrollData.department=employeePayrollObj._department;
-//   employeePayrollData.salary=employeePayrollObj._salary;
-//   employeePayrollData.notes=employeePayrollObj._notes;
-//   try{
-//     employeePayrollData.startDate=new Date(Date.parse(employeePayrollObj._startDate));
-//   }catch(e){
-//     setTextValue('.date-error',e);
-//     throw e;
-//   }
-//   alert(employeePayrollData.toString());
-// }
-
 const createNewEmployeeId=() =>{
   let empId=localStorage.getItem("EmployeeID");
   empId=!empId ? 1 : (parseInt(empId)+1).toString();
